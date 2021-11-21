@@ -42,13 +42,13 @@ let B7Validator = {
                 switch(rDetails[0]) {
                     case 'required':
                         if(input.value == '') {
-                            return 'Campo não pode ser vázio';
+                            return 'Field cannot be empty';
 
                         }
                     break;
                     case 'min':
                         if(input.value.length < rDetails[1]) {
-                            return 'Campo tem que ter pelo menos '+rDetails[1]+' caracteres';
+                            return 'Field must have at least '+rDetails[1]+' digits';
                         }
 
                     break;
@@ -57,14 +57,14 @@ let B7Validator = {
                             //Expressão regular (criar um padrão a qual o valor deve obedecer)
                             let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                             if(!regex.test(input.value.toLowerCase())) {
-                                return 'E-mail digitado não é válido!';
+                                return 'Submit a valid e-mail!';
                             }
                         }
                         break;
                     case 'equal':
                         let equalTo = document.querySelector(`input[ name = ${rDetails[1]} ]`).value;
                         if (input.value != equalTo) {
-                            return 'As senhas não são iguais';
+                            return 'Must be equal to password';
                         }
                         break;
                 }
